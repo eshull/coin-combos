@@ -7,13 +7,18 @@ class Change
   end
 
   def calculate
-    new_cents = @cents
-    while  new_cents >= 25 do
-      new_cents -= 25
+    while  @cents >= 25 do
+      @cents -= 25
     end
-    while new_cents >= 10 do
-      new_cents -= 10
+    while @cents >= 10 do
+      @cents -= 10
     end
-    new_cents / 100
+    while @cents >= 5 do
+      @cents -= 5
+    end
+    while @cents >= 1 do
+      @cents -= 1
+    end
+    @cents / 100
   end
 end
