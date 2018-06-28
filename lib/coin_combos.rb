@@ -7,18 +7,28 @@ class Change
   end
 
   def calculate
-    while  @cents >= 25 do
-      @cents -= 25
+    quarters = 0
+    dimes = 0
+    nickels = 0
+    pennies = 0
+    coins = []
+    until @cents == 0 do
+      if @cents >= 25
+        @cents -= 25
+        quarters += 1
+      elsif @cents >= 10
+        @cents -= 10
+        dimes += 1
+      elsif @cents >= 5
+        @cents -= 5
+        nickels += 1
+      elsif @cents >= 1
+        @cents -= 1
+        pennies += 1
+      end
     end
-    while @cents >= 10 do
-      @cents -= 10
-    end
-    while @cents >= 5 do
-      @cents -= 5
-    end
-    while @cents >= 1 do
-      @cents -= 1
-    end
-    @cents / 100
+    coins.push(quarters, dimes, nickels, pennies)
+    puts "The change for this amount is #{quarters} quarters, #{dimes} dimes, #{nickels} nickels, and #{pennies}, pennies"
+    coins
   end
 end
