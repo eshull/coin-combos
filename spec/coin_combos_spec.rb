@@ -4,6 +4,6 @@ require('coin_combos')
 describe('#coin_combos') do
   it('receives input for number')do
   coins = Change.new(5)
-    expect(coins.calculate()).to(eq(4))
+    expect(coins.calculate()).to(eq(5))
   end
 end

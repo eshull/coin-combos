@@ -4,5 +4,6 @@ class Change
   end
 
   def calculate
+    @cents
   end
 end
