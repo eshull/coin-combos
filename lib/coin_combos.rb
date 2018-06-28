@@ -1,16 +1,19 @@
+require 'pry'
 class Change
   attr_accessor(:cents)
 
   def initialize(x)
-    @cents = x.to_f
+    @cents = (x * 100)
   end
 
   def calculate
     new_cents = @cents
-    while new_cents > 0.25 do
-      puts new_cents
-      new_cents -= 0.15
+    while  new_cents >= 25 do
+      new_cents -= 25
     end
-    new_cents.round(2)
+    while new_cents >= 10 do
+      new_cents -= 10
+    end
+    new_cents / 100
   end
 end
